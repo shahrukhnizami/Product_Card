@@ -1,4 +1,4 @@
 function Button({text}){
-    return(<button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" > {text}</button>)
+    return(<button className="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mt-10 sm:mt-0" > {text}</button>)
 }
 export default Button;
