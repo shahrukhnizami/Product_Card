@@ -9,14 +9,25 @@ function Cards(){
 
   const [product,setProduct]=useState([])
   const [search, setSearch] = useState("");
-  const [scategory, setcategory] = useState([]);
-  const [sprice, setprice] = useState([]);
+  const [scategory, setscategory] = useState("");
+  // const [sprice, setprice] = useState([]);
+
+
+ 
+  const search_category=(e)=>{
+    console.log(e.target.value)
+    setscategory(e.target.value)
+
+  }
+  
+  
   // const filteredArr = product.filter((data) => data.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 );
   const filteredArr = product.filter((data) => data.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 );
 
-  const categoryArr = product.filter((data) =>data.category.indexOf(product.category) !==-1 )
+  const categoryArr =product.filter((data)=>data.category.toLowerCase().indexOf(scategory) !==-1)
+  // const categoryall =product.filter((data)=>data.category !==-1)
   // console.log(sprice);
-  console.log(scategory);
+  // console.log(scategory);
    ;
   // const priceArr = product.filter((data) => data.price.in(search) !== -1 );
 
@@ -89,26 +100,23 @@ function Cards(){
       </div>
       <br/>
 <div className="flex">
-<form class="max-w-sm mx-auto">
+<label>Select Category</label>
+<div class="  max-w-sm mx-auto">
+ 
+  <select onChange={search_category}
   
-  <select onChange={(e) => setcategory(console.log(e.target.value))
-          
-          
-        } id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <option selected>Choose Category</option>
+   id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    
     <option value="men's clothing">Men's clothing</option>
     <option value="women's clothing">Women's clothing</option>
     <option value="jewelery">Jewelery</option>
     <option value="electronics">Electronics</option>
  
   </select>
-</form>
-<form class="max-w-sm mx-auto">
+</div>
+{/* <form class="max-w-sm mx-auto">
   
-  <select onChange={(e) => setprice(console.log(e.target.value))
-          
-          
-        } id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <select  id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     <option selected>Price Less then</option>
     <option value="Less < 20">20</option>
     <option value="less < 30">30</option>
@@ -116,7 +124,7 @@ function Cards(){
     <option value="less < 50">50</option>
  
   </select>
-</form>
+</form> */}
 
 </div>
 
@@ -128,7 +136,7 @@ function Cards(){
             
           <div  className="flex flex-wrap -m-4">
             
-            {filteredArr.map((data)=>(
+            {categoryArr.map((data)=>(
               <div key={data} className="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a className="block relative h-48 rounded overflow-hidden">
           <img
